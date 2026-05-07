@@ -1,0 +1,59 @@
+/* EcosystemBar.css */
+
+.ecosystem-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0f0f0f;
+  border: 1px solid #1e1e1e;
+  border-radius: 12px;
+  padding: 0.6rem 1.2rem;
+  gap: 1rem;
+}
+
+.ecosystem-items {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.eco-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.eco-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  text-transform: uppercase;
+}
+
+.eco-value {
+  font-size: 0.85rem;
+  font-family: "Fira Code", monospace;
+  color: var(--color-text);
+}
+
+/* Estado de conexión */
+.ecosystem-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  color: var(--color-muted);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #555;
+}
+
+.ecosystem-status.online .status-dot  { background: #C8713A; }
+.ecosystem-status.offline .status-dot { background: #555; }
+.ecosystem-status.online              { color: #C8713A; }

@@ -1,0 +1,47 @@
+# Dependencias
+node_modules/
+**/node_modules/
+
+# Variables de entorno — NUNCA subir al repo
+.env
+.env.local
+.env.*.local
+
+# Credenciales y tokens — NUNCA subir al repo
+*.json
+!frontend/package.json
+!frontend/package-lock.json
+!**/tsconfig.json
+.cache
+client_secret_*.json
+
+# Build de producción
+dist/
+build/
+
+# Python
+venv/
+.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Docker
+.docker/
+
+# Datos persistentes de DB (si se activa)
+postgres_data/

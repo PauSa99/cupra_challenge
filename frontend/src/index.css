@@ -1,0 +1,23 @@
+/* index.css — reset global y variables de diseño */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg: #0a0a0a;
+  --color-surface: #111111;
+  --color-text: #e0e0e0;
+  --color-muted: #888888;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Fira Sans', system-ui, sans-serif;
+  min-height: 100vh;
+}

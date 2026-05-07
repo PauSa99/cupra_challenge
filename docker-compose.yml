@@ -1,0 +1,49 @@
+# docker-compose.yml — configuración base
+# Para desarrollo usa: docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+# Docker Compose carga automáticamente .env del mismo directorio
+
+version: "3.9"
+
+services:
+  wearable:
+    build:
+      context: ./wearable
+      dockerfile: Dockerfile
+    ports:
+      - "${WEARABLE_PORT:-3002}:3002"
+
+  sensors:
+    build:
+      context: ./sensors
+      dockerfile: Dockerfile
+    ports:
+      - "${SENSORS_PORT:-3003}:3003"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "${BACKEND_PORT:-3001}:${BACKEND_PORT:-3001}"
+    depends_on:
+      - wearable
+      - sensors
+    env_file:
+      - .env
+    environment:
+      # DNS interno de Docker para los simuladores (sobreescribe WEARABLE_WS_URL del .env)
+      - WEARABLE_WS_URL=ws://wearable:3002/ws
+      - SENSORS_WS_URL=ws://sensors:3003/ws
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "${FRONTEND_PORT:-5173}:${FRONTEND_PORT:-5173}"
+    # depends_on:
+      # - backend
+    environment:
+      - FRONTEND_PORT=${FRONTEND_PORT:-5173}
+      - VITE_WS_URL=${VITE_WS_URL:-ws://localhost:3001/ws}
+      - VITE_WS_SALLY_URL=${VITE_WS_SALLY_URL:-ws://localhost:3001/ws/sally}

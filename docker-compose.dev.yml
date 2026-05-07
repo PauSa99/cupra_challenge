@@ -1,0 +1,32 @@
+# docker-compose.dev.yml — overrides de desarrollo con hot reload
+# Uso: docker compose -f docker-compose.dev.yml up --build
+
+version: "3.9"
+
+services:
+  wearable:
+    build:
+      target: development
+    volumes:
+      - ./wearable:/app
+
+  sensors:
+    build:
+      target: development
+    volumes:
+      - ./sensors:/app
+
+  frontend:
+    build:
+      target: development
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/index.html:/app/index.html
+      - ./frontend/vite.config.js:/app/vite.config.js
+      - /app/node_modules
+
+  backend:
+    build:
+      target: development
+    volumes:
+      - ./backend/src:/app/src

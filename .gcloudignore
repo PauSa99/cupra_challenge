@@ -1,0 +1,45 @@
+# Archivos que NO deben subirse al build de Cloud Run.
+# Sintaxis: igual que .gitignore.
+
+# Git
+.git/
+.gitignore
+
+# Variables de entorno y credenciales
+.env
+.env.*
+*.json
+!frontend/package.json
+!frontend/package-lock.json
+.cache
+client_secret_*.json
+
+# Dependencias (se instalan dentro del Dockerfile)
+node_modules/
+**/node_modules/
+venv/
+.venv/
+
+# Caches de Python
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+
+# Build artifacts (se generan dentro del Dockerfile)
+dist/
+build/
+**/dist/
+**/build/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Docs y scripts auxiliares — no necesarios en producción
+README.md
+DEPLOY.md
+auth_scripts/
+docker-compose*.yml
