@@ -9,8 +9,8 @@
 FROM node:20-alpine AS frontend-build
 WORKDIR /web
 
-COPY frontend/package.json frontend/package-lock.json* ./
-RUN npm ci --no-audit --no-fund
+COPY frontend/package.json ./
+RUN npm install
 
 COPY frontend/ ./
 RUN npm run build
