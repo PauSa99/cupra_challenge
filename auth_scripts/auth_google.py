@@ -9,9 +9,9 @@ CLIENT_SECRET = "TU_CLIENT_SECRET_DE_GOOGLE_CLOUD"
 
 # Scopes para Calendar y Gmail
 SCOPES = [
-    'https://www.googleapis.com/auth/calendar',
-    'https://www.googleapis.com/auth/gmail.modify',
-    'https://www.googleapis.com/auth/gmail.send'
+    'https://www.googleapis.com/auth/calendar.readonly',
+    'https://www.googleapis.com/auth/gmail.readonly',
+    'https://www.googleapis.com/auth/gmail.send',
 ]
 
 def get_google_refresh_token():
