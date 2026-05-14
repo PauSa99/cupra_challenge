@@ -19,7 +19,7 @@ export default function CarScene3D() {
 
         <SceneCamera />
 
-        <Environment preset="warehouse" />
+        <Environment files="/hdri/empty_warehouse_01_1k.hdr" />
         <ambientLight intensity={0.04} />
         <SallyLighting />
 
